@@ -268,8 +268,8 @@ function getdata(a) {
 		.then((data) => {
 			cmm = spl(data.estSubCount);
 			raw = data.estSubCount;
-			document.getElementById("avatar").src = data.userImg;
-			document.getElementById("title").textContent = data.username;
+			document.getElementById("avatar").src = data.snippet.thumbnails[0].url;
+			document.getElementById("title").textContent = data.snippet.title;
 			if (chart.series[0].points.length >= 3600)
 				chart.series[0].data[0].remove();
 			chart.series[0].addPoint([Date.now(), data.estSubCount]);
