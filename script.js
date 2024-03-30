@@ -266,13 +266,13 @@ function getdata(a) {
 	fetch(url + a)
 		.then((res) => res.json())
 		.then((data) => {
-			cmm = spl(data.subcount);
-			raw = data.subcount;
+			cmm = spl(data.estSubCount);
+			raw = data.estSubCount;
 			document.getElementById("avatar").src = data.userImg;
 			document.getElementById("title").textContent = data.username;
 			if (chart.series[0].points.length >= 3600)
 				chart.series[0].data[0].remove();
-			chart.series[0].addPoint([Date.now(), data.subcount]);
+			chart.series[0].addPoint([Date.now(), data.estSubCount]);
 			return cmm;
 		});
 }
