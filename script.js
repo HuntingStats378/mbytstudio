@@ -3,7 +3,7 @@ var raw = 0;
 var m = "100m";
 const params = new URLSearchParams(window.location.search);
 var id = params.get("id") || "UClOyuxZvQkoHoIn15kNbkUw";
-var url = "https://api-v2.nextcounts.com/api/youtube/channel/";
+var url = "https://nia-statistics.com/api/get?platform=youtube&type=channel&id=";
 function spl(n) {
 	n = "" + n + "";
 	return n.split("", 9);
