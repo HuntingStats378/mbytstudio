@@ -1,9 +1,7 @@
 var cmm = "0";
 var raw = 0;
 var m = "100m";
-const params = new URLSearchParams(window.location.search);
-var id = params.get("id") || "UClOyuxZvQkoHoIn15kNbkUw";
-var url = "https://nia-statistics.com/api/get?platform=youtube&type=channel&id=";
+var url = "https://mrbeast-confirmed-stats.vercel.app/api/statistics";
 function spl(n) {
 	n = "" + n + "";
 	return n.split("", 9);
@@ -263,16 +261,14 @@ const chart = new Highcharts.chart({
 });
 
 function getdata(a) {
-	fetch(url + a)
+	fetch(url)
 		.then((res) => res.json())
 		.then((data) => {
-			cmm = spl(data.estSubCount);
-			raw = data.estSubCount;
-			document.getElementById("avatar").src = data.snippet.thumbnails[0].url;
-			document.getElementById("title").textContent = data.snippet.title;
+			cmm = spl(data.lastUpdateCount);
+			raw = data.lastUpdateCount;
 			if (chart.series[0].points.length >= 3600)
 				chart.series[0].data[0].remove();
-			chart.series[0].addPoint([Date.now(), data.estSubCount]);
+			chart.series[0].addPoint([Date.now(), data.lastUpdateCount]);
 			return cmm;
 		});
 }
