@@ -266,6 +266,8 @@ function getdata(a) {
 		.then((data) => {
 			cmm = spl(data.lastUpdateCount);
 			raw = data.lastUpdateCount;
+			document.getElementById("avatar").src = "https://yt3.ggpht.com/fxGKYucJAVme-Yz4fsdCroCFCrANWqw0ql4GYuvx8Uq4l_euNJHgE-w9MTkLQA805vWCi-kE0g=s176-c-k-c0x00ffffff-no-rj";
+                        document.getElementById("title").textContent = "MrBeast";
 			if (chart.series[0].points.length >= 3600)
 				chart.series[0].data[0].remove();
 			chart.series[0].addPoint([Date.now(), data.lastUpdateCount]);
